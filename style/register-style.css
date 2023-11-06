@@ -27,7 +27,12 @@ body{
     padding: 7px;
 }
 
-button{
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#btn{
     width: 100%;
     border: none;
     background-color: blue;
