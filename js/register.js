@@ -40,7 +40,41 @@ function validate() {
     }
 }
 
+function crateUserObject () {
+    let user = {};
+    user.name = name.value;
+    user.surname = surname.value;
+    user.age = age.value;
+    user.username = username.value;
+    user.password = password.value;
+    user.lang = [];
+
+    lang.forEach(el => {
+        if(el.checked) {
+            user.lang.push(el.value);
+        }
+    });
+
+    let data = localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
+
+    if (data.langth) {
+        data.forEach(el => {
+            if (el.username == user.username) {
+                alert("bunday foydalanuvchi");
+                username.value = '';
+                username.focus();
+                username.style.outlineColor = 'red';
+                return;
+            }
+
+
+        })
+    } else {
+        data.push(user);
+    }
+}
+
 btn.addEventListener('click', function ()  {
     validate();
-
+    crateUserObject();
 });
